@@ -41,13 +41,13 @@ for i=t
     SNRe = abs(ye(i))/N;
     SNRd = abs(yd(i))/N;
     %   check the ratio
-    SNRe_db = 10*log10(SNRe);
-    SNRd_db = 10*log10(SNRd);
-    avgSNR = 10*log10(abs(x(i)^2)*SNRd);
-    K = SNRd_db/SNRe_db;
-    p = 1- exp(-K/avgSNR);
-    P = [P p];
+%     SNRe_db = 10*log10(SNRe);
+%     SNRd_db = 10*log10(SNRd);
+%     avgSNR = 10*log10(abs(x(i)^2)*SNRd);
+%     K = SNRd_db/SNRe_db;
+%     p = 1- exp(-K/avgSNR);
+%     P = [P p];
 end
-plot(P, 'o');
+% plot(P, 'o');
 
 
