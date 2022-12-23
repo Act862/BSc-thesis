@@ -1,0 +1,25 @@
+% Set the number of symbols to be transmitted
+N = 10000;
+
+% Set the signal-to-noise ratio (SNR) in dB
+SNR_dB = 10;
+
+% Set the noise power
+N0 = 1;
+
+% Compute the signal power
+P = N0 * 10^(SNR_dB/10);
+
+% Generate random channel gains for Alice and Eve
+h_A = sqrt(0.5) * (randn(1,N) + 1i*randn(1,N));
+h_E = sqrt(0.5) * (randn(1,N) + 1i*randn(1,N));
+
+% Compute the received signals at Bob and Eve
+y_B = h_A .* (sqrt(P/2) * (randi([0,1],1,N)*2-1)) + sqrt(N0/2) * (randn(1,N) + 1i*randn(1,N));
+y_E = h_E .* (sqrt(P/2) * (randi([0,1],1,N)*2-1)) + sqrt(N0/2) * (randn(1,N) + 1i*randn(1,N));
+
+% Compute the secrecy outage probability
+P_out = sum(abs(h_A).^2 < abs(h_E).^2) / N;
+
+% Print the secrecy outage probability
+disp(['Secrecy outage probability: ', num2str(P_out)]);

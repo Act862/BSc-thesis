@@ -1,0 +1,36 @@
+% Set the number of symbols to be transmitted
+N = 10000;
+
+% Set the range of SNR ratios to be simulated
+SNR_ratios = 0:0.5:20;
+
+% Set the noise power
+N0 = 1;
+
+% Initialize the secrecy outage probability vector
+P_out = zeros(size(SNR_ratios));
+
+% Loop over the range of SNR ratios
+for i = 1:length(SNR_ratios)
+    
+    % Compute the signal powers for Alice and Eve
+    P_A = N0 * 10^(SNR_ratios(i)/10);
+    P_E = N0;
+    
+    % Generate random channel gains for Alice and Eve
+    h_A = sqrt(0.5) * (randn(1,N) + 1i*randn(1,N));
+    h_E = sqrt(0.5) * (randn(1,N) + 1i*randn(1,N));
+    
+    % Compute the received signals at Bob and Eve
+    y_B = h_A .* (sqrt(P_A/2) * (randi([0,1],1,N)*2-1)) + sqrt(N0/2) * (randn(1,N) + 1i*randn(1,N));
+    y_E = h_E .* (sqrt(P_A/2) * (randi([0,1],1,N)*2-1)) + sqrt(N0/2) * (randn(1,N) + 1i*randn(1,N));
+    
+    % Compute the secrecy outage probability
+    P_out(i) = sum(abs(h_A).^2 < abs(h_E).^2) / N;
+    
+end
+
+% Plot the secrecy outage probability versus SNR ratio
+plot(SNR_ratios, P_out);
+xlabel('SNR ratio (Alice/Eve) [dB]');
+ylabel('Secrecy outage probability');
