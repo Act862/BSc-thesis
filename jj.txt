@@ -1,0 +1,22 @@
+% Set the range of |h_A|^2 and |h_E|^2 values
+ha_sq = 0:0.1:10;
+he_sq = 0:0.1:10;
+
+% Compute the secrecy outage probability for each |h_A|^2 and |h_E|^2 value
+Pout = zeros(size(ha_sq,2),size(he_sq,2));
+for i = 1:size(ha_sq,2)
+    for j = 1:size(he_sq,2)
+        if ha_sq(i) < he_sq(j)
+            Pout(i,j) = 1;
+        else
+            Pout(i,j) = 0;
+        end
+    end
+end
+
+% Plot the secrecy outage probability as a function of |h_A|^2 and |h_E|^2
+figure;
+surf(ha_sq, he_sq, Pout);
+xlabel('|h_A|^2');
+ylabel('|h_E|^2');
+zlabel('P_{out}');
