@@ -61,11 +61,11 @@ end
 % disp(received_data_e);
 
 %   8. calculate the snr of a sample of symbols.
-% snr_destination = (channelGain_d.^2)./noisePower;
-% snr_eavesdropper = (channelGain_e.^2)./noisePower;
+snr_destination = (channelGain_d.^2)./noisePower;
+snr_eavesdropper = (channelGain_e.^2)./noisePower;
 
-snr_destination = abs(received_d_with_noise.^2)/noisePower;
-snr_eavesdropper = abs(received_e_with_noise.^2)/noisePower;
+% snr_destination = abs(received_d_with_noise.^2)/noisePower;
+% snr_eavesdropper = abs(received_e_with_noise.^2)/noisePower;
 
 % snr_destination_db = 10*log10(snr_destination);
 % snr_eavesdropper_db = 10*log10(snr_eavesdropper);
