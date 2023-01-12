@@ -15,5 +15,5 @@ lambda = 10^threshold;
 
 sop = 1-exp((-lambda+1)./gd).*(gd./(lambda*ge+gd));
 figure;
-semilogy(Kdb, sop);
+semilogy(ge, sop);
 grid on;
