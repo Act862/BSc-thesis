@@ -5,7 +5,7 @@ clc;
 noiseSNRdb = 20;
 scaleParam = 1;
 % size = [1 1e5];
-sampleSize = [1 1e3];
+sampleSize = [1 1e5];
 noisePower = 1;
 threshold = 1;
 
@@ -19,7 +19,7 @@ bpskDemod.PhaseOffset = pi/16;
 
 sop = [];
 kdbs = [];
-transmissions_number = 1000;
+transmissions_number = 5;
 
 for i=1:transmissions_number
 %  2. generate the binary data (SOURCE)
