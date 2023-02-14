@@ -19,7 +19,7 @@ bpskDemod.PhaseOffset = pi/16;
 
 sop = [];
 kdbs = [];
-transmissions_number = 5;
+transmissions_number = 1000;
 
 for i=1:transmissions_number
 %  2. generate the binary data (SOURCE)
