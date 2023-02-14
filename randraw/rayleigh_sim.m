@@ -5,7 +5,7 @@ clc;
 noiseSNRdb = 20;
 scaleParam = 1;
 % size = [1 1e5];
-sampleSize = [1 1e5];
+sampleSize = [1 1e4];
 noisePower = 1;
 threshold = 1;
 
@@ -79,10 +79,13 @@ sop = [sop count/sampleSize(2)];
 
 K = mean(snr_destination)/mean(snr_eavesdropper);
 Kdb = 10*log10(K);
-kdbs = [kdbs Kdb];
+kdbs = [kdbs mean(snr_destination)];
 end
 
 semilogy(kdbs, sop, '.');
+ylabel('Secrecy Outage Probability');
+xlabel('Destination to Eavesdropper ratio K (dB)');
+grid on;
 
 
 
