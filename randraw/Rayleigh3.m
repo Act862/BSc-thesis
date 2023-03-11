@@ -20,16 +20,16 @@ semilogy(Kdb, sop);
 ylabel('Secrecy Outage Probability');
 xlabel('Destination to Eavesdropper ration K (dB)');
 
-%% for a grater threshold capacity
-thresholdCapacity = 2:5;
-lambda = 2.^thresholdCapacity;
-
-for i=lambda
-    f1 = exp((-i+1)./avgSNR_dest);
-    f2 = avgSNR_dest./(i*avgSNR_eve+avgSNR_dest);
-    sop = 1 - f1.*f2;
-    hold on;
-    semilogy(Kdb, sop);
-    hold off;
-end
+% %% for a grater threshold capacity
+% thresholdCapacity = 2:5;
+% lambda = 2.^thresholdCapacity;
+% 
+% for i=lambda
+%     f1 = exp((-i+1)./avgSNR_dest);
+%     f2 = avgSNR_dest./(i*avgSNR_eve+avgSNR_dest);
+%     sop = 1 - f1.*f2;
+%     hold on;
+%     semilogy(Kdb, sop);
+%     hold off;
+% end
 grid on;

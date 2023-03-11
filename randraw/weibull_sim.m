@@ -4,7 +4,7 @@ clc;
 %   1. define the parameters of the simulation
 noiseSNRdb = 20;
 locationParam = 0;
-shapeParam = 2;
+shapeParam = 4;
 scaleParam = sqrt(2);
 % size = [1 1e5];
 sampleSize = [1 1e4];
